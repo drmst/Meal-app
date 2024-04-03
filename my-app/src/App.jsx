@@ -8,6 +8,7 @@ import { RecipeDetail } from "./components/RecipeDetail";
 export const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
+  const [mealId, setMealId] = useState();
 
   useEffect(() => {
     fetch(BD_SEARCH_BASE_URL)
@@ -23,14 +24,14 @@ export const App = () => {
       <header>Recipe Search App</header>
       <SearchBar setRecipes={setRecipes} setIsClicked={setIsClicked} />
       {isClicked ? (
-        <RecipeDetail />
+        <RecipeDetail mealId={mealId} />
       ) : (
-        <RecipeList recipes={recipes} setIsClicked={setIsClicked} />
+        <RecipeList
+          recipes={recipes}
+          setIsClicked={setIsClicked}
+          setMealId={setMealId}
+        />
       )}
     </div>
   );
 };
-
-
-
-
