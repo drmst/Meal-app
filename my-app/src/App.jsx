@@ -21,8 +21,10 @@ export const App = () => {
 
   return (
     <div className="container">
-      <header>Recipe Search App</header>
-      <SearchBar setRecipes={setRecipes} setIsClicked={setIsClicked} />
+      <div className="header-container">
+        <header>Recipe Search App</header>
+        <SearchBar setRecipes={setRecipes} setIsClicked={setIsClicked} />
+      </div>
       {isClicked ? (
         <RecipeDetail mealId={mealId} />
       ) : (

@@ -24,7 +24,7 @@ export const RecipeDetail = ({ mealId }) => {
       <div className="recipe-summary">
         <h1 className="meal-name">{meal.strMeal}</h1>
         <div className="meal-details">
-          <img className="meal-photo" src={meal.strMealThumb} />
+          <img className="meal-photo" src={meal.strMealThumb} alt="" />
           <div className="ingredients">
             <p className="ingredient-text">ingredients</p>
             <p className="ingredient-amount">amount</p>

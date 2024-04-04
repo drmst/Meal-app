@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BD_SEARCH_BASE_URL } from "../../urls";
+import "./styles.css"
 
 export const SearchBar = ({ setRecipes, setIsClicked }) => {
   const [searchQuery, setSearchQuery] = useState("");
