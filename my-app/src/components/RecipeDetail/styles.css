@@ -1,0 +1,55 @@
+.meal-container{
+    display: flex;
+}
+
+.recipe-summary{
+    height: 90vh;
+    width:300px;
+    background-color: rgb(190, 255, 255);
+}
+
+.meal-name{
+    text-align: center;
+}
+
+.meal-photo{
+    border-radius: 50%;
+    width:80%;
+    padding: 5px;
+}
+
+.ingredients{
+    background-color: aquamarine;
+    height:60vh;
+}
+
+.ingredients{
+    display: flex;
+}
+
+.ingredients p{
+   padding:5px;
+}
+
+
+.recipe-details{
+    display: flex;
+    justify-content: center;
+}
+
+.recipe-text{
+    width:60%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding:10px;
+    margin-left:5px;
+    margin-right:5px;
+}
+
+.recipe-photos{
+    width:30%;
+    height: 90%;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding:5px;
+}
