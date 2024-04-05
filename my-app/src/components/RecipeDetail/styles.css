@@ -30,14 +30,14 @@
 .ingredients {
     background-color: aquamarine;
     height: 60vh;
+    display: flex;justify-content: center;
 }
 
-.ingredients {
-    display: flex;
-}
+
 
 .ingredients p {
     padding: 5px;
+    
 }
 
 

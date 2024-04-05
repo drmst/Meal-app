@@ -17,7 +17,9 @@ export const RecipeDetail = ({ mealId }) => {
     ]
   );
 
-  console.log(meal);
+const newMeal = meal.slice(3,10);
+console.log(newMeal)
+
 
   return (
     <div className="meal-container">
@@ -26,8 +28,8 @@ export const RecipeDetail = ({ mealId }) => {
         <div className="meal-details">
           <img className="meal-photo" src={meal.strMealThumb} alt="" />
           <div className="ingredients">
-            <p className="ingredient-text">ingredients</p>
-            <p className="ingredient-amount">amount</p>
+            <p className="ingredient-text">Ingredients</p>
+            <p className="ingredient-amount">Amount</p>
           </div>
         </div>
       </div>
