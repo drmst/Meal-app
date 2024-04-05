@@ -3,7 +3,7 @@ import "./styles.css";
 export const RecipeList = ({ recipes, setIsClicked, setMealId }) => {
   return (
     <div>
-      <h2>Search Results</h2>
+      <h2 className="recipe-list-title">Search Results</h2>
       <div className="recipe-container">
         <ul className="recipe-list">
           {recipes.map((recipe) => (

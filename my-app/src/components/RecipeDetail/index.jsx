@@ -6,20 +6,14 @@ export const RecipeDetail = ({ mealId }) => {
     "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + mealId;
 
   const [meal, setMeal] = useState("");
-  useEffect(
-    () => {
-      fetch(MEAL_URL).then((response) =>
-        response.json().then((data) => setMeal(data.meals[0]))
-      );
-    },
-    [
-      // MEAL_URL
-    ]
-  );
 
-const newMeal = meal.slice(3,10);
-console.log(newMeal)
-
+  useEffect(() => {
+    fetch(MEAL_URL).then((response) =>
+      response.json().then((data) => {
+        setMeal(data.meals[0]);
+      })
+    );
+  }, [MEAL_URL]);
 
   return (
     <div className="meal-container">
@@ -28,7 +22,7 @@ console.log(newMeal)
         <div className="meal-details">
           <img className="meal-photo" src={meal.strMealThumb} alt="" />
           <div className="ingredients">
-            <p className="ingredient-text">Ingredients</p>
+            <p className="ingredient-text">Ingredient</p>
             <p className="ingredient-amount">Amount</p>
           </div>
         </div>
@@ -37,8 +31,11 @@ console.log(newMeal)
       <div className="recipe-details">
         <div className="recipe-text">
           <div className="meal-info">
-            <img src="" alt="" className="flag" />
-            <p className="meal-category">category</p>
+            <div className="meal-info-text">
+              <p className="meal-category">{meal.strCategory}</p>
+              <p className="meal-area">{meal.strArea}</p>
+            </div>
+            <p className="meal-tags">{meal.strTags}</p>
           </div>
           <div className="instructions">{meal.strInstructions}</div>
         </div>
