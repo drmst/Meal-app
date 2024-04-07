@@ -1,33 +1,20 @@
-import { useEffect, useState } from "react";
 import "./styles.css";
 
-export const RecipeDetail = ({ mealId }) => {
-  const MEAL_URL =
-    "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + mealId;
+export const RecipeDetail = ({ index, recipes }) => {
+  const meal = recipes[index];
 
-  const [meal, setMeal] = useState("");
-  const [ingredients, setIngredients] = useState([]);
+  const ingredients = [];
+  for (let i = 1; i < 21; i++) {
+    const ingredientKey = `strIngredient${i}`;
+    const measureKey = `strMeasure${i}`;
 
-  useEffect(() => {
-    fetch(MEAL_URL).then((response) =>
-      response.json().then((data) => {
-        setMeal(data.meals[0]);
-        const newIngredients = [];
-        for (let i = 1; i < 21; i++) {
-          const ingredientKey = `strIngredient${i}`;
-          const measureKey = `strMeasure${i}`;
-
-          const ingredient = meal[ingredientKey];
-          const measure = meal[measureKey];
-          if (!ingredient || !measure) {
-            break;
-          }
-          newIngredients.push(`${measure} ${ingredient}`);
-        }
-        setIngredients(newIngredients);
-      }).catch((error) =>console.log(error))
-    );
-  }, [MEAL_URL, meal]);
+    const ingredient = meal[ingredientKey];
+    const measure = meal[measureKey];
+    if (!ingredient || !measure) {
+      break;
+    }
+    ingredients.push(`${measure} ${ingredient}`);
+  }
 
   return (
     <div className="meal-container">
@@ -59,13 +46,13 @@ export const RecipeDetail = ({ mealId }) => {
           </div>
           {meal && meal.strInstructions && (
             <div className="instructions">
-              {meal.strInstructions.split(".").map((sentence) => (
-                <p>{sentence}.</p>
+              {meal.strInstructions.split(".").map((sentence, i) => (
+                <p key={i}>{sentence}.</p>
               ))}
             </div>
           )}
         </div>
-        <div className="recipe-photos">photos</div>
+        <div className="recipe-photos">photos and videos</div>
       </div>
     </div>
   );

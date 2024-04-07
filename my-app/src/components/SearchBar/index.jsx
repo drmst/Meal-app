@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { BD_SEARCH_BASE_URL } from "../../urls";
-import "./styles.css"
+import "./styles.css";
 
 export const SearchBar = ({ setRecipes, setIsClicked }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = () => {
-    console.log(BD_SEARCH_BASE_URL + searchQuery);
     fetch(BD_SEARCH_BASE_URL + searchQuery)
       .then((response) => response.json())
       .then((data) => {
@@ -14,6 +13,7 @@ export const SearchBar = ({ setRecipes, setIsClicked }) => {
       })
       .catch((error) => setRecipes([]));
     setIsClicked(false);
+    setSearchQuery("");
   };
 
   return (
@@ -22,6 +22,7 @@ export const SearchBar = ({ setRecipes, setIsClicked }) => {
         type="text"
         placeholder="Search for recipe"
         onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery}
       />
       <input type="submit" value="Search" onClick={handleSearch} />
     </form>

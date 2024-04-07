@@ -18,3 +18,21 @@
 .recipe-list-title{
     text-align: center;
 }
+
+.recipe-list-item{
+    cursor: pointer;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.recipe-title{
+    text-align: center;
+    font-size:18px;
+}
+
+.recipe-image {
+    width: 100%;
+    border-radius: 50%;
+    border: 5px #4e4e4e solid;
+}

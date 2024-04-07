@@ -2,3 +2,18 @@ header {
     font-weight: 600;
     padding-left: 120px;
 }
+
+.back-button {
+    cursor: pointer;
+    border:solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 50px;
+ 
+}
+
+.back-button:hover {
+    background-color: rgb(255, 136, 132);
+    transition: 0.3s;
+}
+

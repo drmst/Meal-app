@@ -8,7 +8,7 @@ import { RecipeDetail } from "./components/RecipeDetail";
 export const App = () => {
   const [recipes, setRecipes] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
-  const [mealId, setMealId] = useState();
+  const [index, setIndex] = useState();
 
   useEffect(() => {
     fetch(BD_SEARCH_BASE_URL)
@@ -18,7 +18,8 @@ export const App = () => {
       })
       .catch((error) => {
         console.log(error);
-         setRecipes([])});
+        setRecipes([]);
+      });
   }, []);
 
   return (
@@ -27,7 +28,7 @@ export const App = () => {
         {isClicked ? (
           <header
             onClick={() => setIsClicked(false)}
-            style={{ cursor: "pointer" }}
+            className="back-button"
           >
             Back to the list
           </header>
@@ -38,12 +39,12 @@ export const App = () => {
         <SearchBar setRecipes={setRecipes} setIsClicked={setIsClicked} />
       </div>
       {isClicked ? (
-        <RecipeDetail mealId={mealId} />
+        <RecipeDetail index={index} recipes={recipes} />
       ) : (
         <RecipeList
           recipes={recipes}
           setIsClicked={setIsClicked}
-          setMealId={setMealId}
+          setIndex={setIndex}
         />
       )}
     </div>
