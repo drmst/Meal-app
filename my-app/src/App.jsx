@@ -16,13 +16,25 @@ export const App = () => {
       .then((data) => {
         if (data.meals) return setRecipes(data.meals);
       })
-      .catch((error) => setRecipes([]));
+      .catch((error) => {
+        console.log(error);
+         setRecipes([])});
   }, []);
 
   return (
     <div className="container">
       <div className="header-container">
-        <header>Recipe Search App</header>
+        {isClicked ? (
+          <header
+            onClick={() => setIsClicked(false)}
+            style={{ cursor: "pointer" }}
+          >
+            Back to the list
+          </header>
+        ) : (
+          <header>Recipe Search App</header>
+        )}
+
         <SearchBar setRecipes={setRecipes} setIsClicked={setIsClicked} />
       </div>
       {isClicked ? (

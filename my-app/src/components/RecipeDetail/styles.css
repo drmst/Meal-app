@@ -4,7 +4,7 @@
 }
 
 .recipe-summary {
-    height:90%;
+    height: 90%;
     width: 20%;
     background-color: rgb(190, 255, 255);
     border: 1px solid red;
@@ -29,15 +29,31 @@
 
 .ingredients {
     background-color: aquamarine;
-    height: 60vh;
-    display: flex;justify-content: center;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 0px;
 }
 
-
+.ingredients ul {
+    padding-left: 0px;
+}
 
 .ingredients p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px;
+    text-align: center;
+}   
+
+.ingredient {
     padding: 5px;
-    
+    margin: 5px;
+    list-style: none;
+    background-color: rgb(210, 247, 235);
+    border-radius: 5px;
+
 }
 
 
@@ -57,9 +73,7 @@
     font-size: 24px;
 }
 
-.instructions::first-letter {
-    font-size: 60px;
-}
+
 
 .recipe-photos {
     width: 30%;
@@ -68,23 +82,23 @@
     padding: 5px;
 }
 
-.meal-info{
+.meal-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.meal-info p{
+.meal-info p {
     background-color: rgb(190, 255, 255);
     border-radius: 10px;
-    
+    margin: 0 10px;
+    padding: 5px;
+
 }
 
-.meal-info-text{
+.meal-info-text {
     display: flex;
 }
 
-.meal-info-text p{
-    margin: 0 10px;
-}
+
 

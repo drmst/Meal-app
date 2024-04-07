@@ -6,14 +6,28 @@ export const RecipeDetail = ({ mealId }) => {
     "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + mealId;
 
   const [meal, setMeal] = useState("");
+  const [ingredients, setIngredients] = useState([]);
 
   useEffect(() => {
     fetch(MEAL_URL).then((response) =>
       response.json().then((data) => {
         setMeal(data.meals[0]);
-      })
+        const newIngredients = [];
+        for (let i = 1; i < 21; i++) {
+          const ingredientKey = `strIngredient${i}`;
+          const measureKey = `strMeasure${i}`;
+
+          const ingredient = meal[ingredientKey];
+          const measure = meal[measureKey];
+          if (!ingredient || !measure) {
+            break;
+          }
+          newIngredients.push(`${measure} ${ingredient}`);
+        }
+        setIngredients(newIngredients);
+      }).catch((error) =>console.log(error))
     );
-  }, [MEAL_URL]);
+  }, [MEAL_URL, meal]);
 
   return (
     <div className="meal-container">
@@ -22,8 +36,14 @@ export const RecipeDetail = ({ mealId }) => {
         <div className="meal-details">
           <img className="meal-photo" src={meal.strMealThumb} alt="" />
           <div className="ingredients">
-            <p className="ingredient-text">Ingredient</p>
-            <p className="ingredient-amount">Amount</p>
+            <p>Ingredients</p>
+            <ul>
+              {ingredients.map((ingredient, index) => (
+                <li key={index} className="ingredient">
+                  {ingredient}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -37,7 +57,13 @@ export const RecipeDetail = ({ mealId }) => {
             </div>
             <p className="meal-tags">{meal.strTags}</p>
           </div>
-          <div className="instructions">{meal.strInstructions}</div>
+          {meal && meal.strInstructions && (
+            <div className="instructions">
+              {meal.strInstructions.split(".").map((sentence) => (
+                <p>{sentence}.</p>
+              ))}
+            </div>
+          )}
         </div>
         <div className="recipe-photos">photos</div>
       </div>
