@@ -4,6 +4,9 @@
 }
 
 .recipe-summary {
+    /* Never set both height and width at the same time as there's a high chance content will overflow at some point. If you want to use width, let the height to be what the content needs unless you have a very unflexible element that never changes in size (e.g. icon).
+Sometimes you may want to use minHeight just to ensure that the section takes enough space event if there's not enough content.   
+    */
     height: 90%;
     width: 20%;
     background-color: rgb(190, 255, 255);
@@ -23,8 +26,6 @@
     padding: 5px;
     display: block;
     margin: 5px auto;
-
-
 }
 
 .ingredients {
