@@ -4,7 +4,10 @@
 }
 
 .recipe-summary {
-    height: 90%;
+    /* Never set both height and width at the same time as there's a high chance content will overflow at some point. If you want to use width, let the height to be what the content needs unless you have a very unflexible element that never changes in size (e.g. icon).
+Sometimes you may want to use minHeight just to ensure that the section takes enough space event if there's not enough content.   
+    */
+
     width: 20%;
     background-color: rgb(190, 255, 255);
     border: 2px solid rgb(0, 0, 0);
@@ -23,8 +26,6 @@
     padding: 5px;
     display: block;
     margin: 5px auto;
-
-
 }
 
 .ingredients {
@@ -40,7 +41,7 @@
     padding-left: 0px;
 }
 
-.ingredients p {
+.ingredients h2 {
     font-size: 24px;
     font-weight: bold;
     margin: 5px;
@@ -88,7 +89,7 @@
     align-items: center;
 }
 
-.meal-info p {
+.meal-info h5, .meal-tags{
     background-color: rgb(190, 255, 255);
     border-radius: 10px;
     margin: 0 10px;
@@ -99,6 +100,3 @@
 .meal-info-text {
     display: flex;
 }
-
-
-

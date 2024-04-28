@@ -30,9 +30,11 @@ export const RecipeList = ({ recipes, setIsClicked,setIndex }) => {
               className="recipe-list-item"
               style={{ backgroundColor: categoryColor[recipe.strCategory] }}
               key={recipe.idMeal}
+              // Don't use index to select a recipe, use idMeal instead
               onClick={() => handleClick(index)}
             >
-              <p className="recipe-title"> {recipe.strMeal}</p>
+              {/* This should be a heading element */}
+              <h2 className="recipe-title"> {recipe.strMeal}</h2>
               <img
                 className="recipe-image"
                 src={recipe.strMealThumb}
