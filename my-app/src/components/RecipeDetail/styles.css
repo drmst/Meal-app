@@ -41,7 +41,7 @@ Sometimes you may want to use minHeight just to ensure that the section takes en
     padding-left: 0px;
 }
 
-.ingredients p {
+.ingredients h2 {
     font-size: 24px;
     font-weight: bold;
     margin: 5px;
@@ -89,7 +89,7 @@ Sometimes you may want to use minHeight just to ensure that the section takes en
     align-items: center;
 }
 
-.meal-info p {
+.meal-info h5, .meal-tags{
     background-color: rgb(190, 255, 255);
     border-radius: 10px;
     margin: 0 10px;
@@ -100,6 +100,3 @@ Sometimes you may want to use minHeight just to ensure that the section takes en
 .meal-info-text {
     display: flex;
 }
-
-
-

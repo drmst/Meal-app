@@ -24,10 +24,10 @@ export const RecipeDetail = ({ index, recipes }) => {
         <h1 className="meal-name">{meal.strMeal}</h1>
         <div className="meal-details">
           {/* Always add alt text to images! You can use recipe name or similar here */}
-          <img className="meal-photo" src={meal.strMealThumb} alt="" />
+          <img className="meal-photo" src={meal.strMealThumb} alt={meal.strMeal} />
           <div className="ingredients">
             {/* This should be some kind of heading, not a paragraph */}
-            <p>Ingredients</p>
+            <h2>Ingredients</h2>
             <ul>
               {ingredients.map((ingredient, index) => (
                 // Index is just a position of an element in the array which is not atable. It's preferable to use more stable identifiers as key, e.g. you can use 'ingredient' value directly: <li key={ingredient} className="ingredient">
@@ -39,17 +39,17 @@ export const RecipeDetail = ({ index, recipes }) => {
           </div>
         </div>
       </div>
-
+      ingredient
       <div className="recipe-details">
         <div className="recipe-text">
           <div className="meal-info">
             <div className="meal-info-text">
               {/* Those two elements could be span or heading (e.g. h5 or h6) elements, but they are certainly not paragraphs */}
-              <p className="meal-category">{meal.strCategory}</p>
-              <p className="meal-area">{meal.strArea}</p>
+              <h5 className="meal-category">{meal.strCategory}</h5>
+              <h5 className="meal-area">{meal.strArea}</h5>
             </div>
             {/* This value should be rendered conditionally otherwise a blue dot shown on the screen where there's no tags. */}
-            {meal.strTags ? <p className="meal-tags">{meal.strTags}</p> : <></>}
+            {meal.strTags ? <h5 className="meal-tags">{meal.strTags}</h5> : <></>}
           </div>
           {meal && meal.strInstructions && (
             <div className="instructions">
