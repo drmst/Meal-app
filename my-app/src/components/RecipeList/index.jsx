@@ -34,7 +34,7 @@ export const RecipeList = ({ recipes, setIsClicked,setIndex }) => {
               onClick={() => handleClick(index)}
             >
               {/* This should be a heading element */}
-              <p className="recipe-title"> {recipe.strMeal}</p>
+              <h2 className="recipe-title"> {recipe.strMeal}</h2>
               <img
                 className="recipe-image"
                 src={recipe.strMealThumb}
